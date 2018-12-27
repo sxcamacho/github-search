@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { ConfigService } from '../config/config.service'
-import { Config } from 'src/app/interfaces/config'
-import { GITHUB_API_URL, GITHUB_API_TOKEN } from '../../config'
+import { ConfigService } from 'src/app/services/config/config.service'
+
 @Injectable({
   providedIn: 'root',
 })
@@ -18,7 +17,9 @@ export class BaseService {
   }
 
   executeGet(url: string, params: any = null) {
-    let url_request: string = `${GITHUB_API_URL}/${url}?access_token=${GITHUB_API_TOKEN}`
+    let url_request: string = `${
+      this.configService.config.githubApiUrl
+    }/${url}?access_token=${this.configService.config.githubApiToken}`
 
     if (params) {
       url_request += `&${this.serialize(params)}`
@@ -28,7 +29,9 @@ export class BaseService {
   }
 
   getUrl(url: string, params: any = null) {
-    let url_request: string = `${GITHUB_API_URL}/${url}?access_token=${GITHUB_API_TOKEN}`
+    let url_request: string = `${
+      this.configService.config.githubApiUrl
+    }/${url}?access_token=${this.configService.config.githubApiToken}`
 
     if (params) {
       url_request += `&${this.serialize(params)}`

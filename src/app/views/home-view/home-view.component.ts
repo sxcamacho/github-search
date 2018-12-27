@@ -1,8 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core'
-import { UsersService } from 'src/app/services'
-import { User } from 'src/app/models/user'
-import { TouchSequence } from 'selenium-webdriver'
-import { Observable } from 'rxjs'
+import { UserService } from 'src/app/services'
 
 @Component({
   selector: 'app-home-view',
@@ -20,10 +17,10 @@ export class HomeViewComponent implements OnInit {
   private loading: boolean
   private isMobile: boolean
 
-  constructor(private userService: UsersService) {
+  constructor(private userService: UserService) {
     this.page = 1
     this.pageSize = 10
-    this.initialCriteria = 'sebastian'
+    this.initialCriteria = ''
     this.criteria = this.initialCriteria
     this.userTotal = 0
     this.realUserTotal = 0

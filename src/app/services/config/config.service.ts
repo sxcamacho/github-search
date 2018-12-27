@@ -15,9 +15,11 @@ export class ConfigService {
     return this._config
   }
 
-  loadConfig() {
-    this.http.get(configUrl).subscribe((data: Config) => {
-      this._config = { ...data }
-    })
+  load(): Promise<any> {
+    return this.http
+      .get(configUrl)
+      .toPromise()
+      .then((data: Config) => (this._config = { ...data }))
+      .catch((err: any) => Promise.resolve())
   }
 }

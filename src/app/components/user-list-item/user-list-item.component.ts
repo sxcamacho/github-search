@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core'
 import { User } from 'src/app/models'
-import { UsersService } from 'src/app/services'
+import { UserService } from 'src/app/services'
 
 @Component({
   selector: 'user-list-item',
@@ -12,7 +12,7 @@ export class UserListItemComponent implements OnInit {
 
   private internalUser: User
 
-  constructor(private userService: UsersService) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.loadUser(this.user)

@@ -2,7 +2,7 @@ export class User {
   name: string
   username: string
   avatar: string
-  bio: string
+  biography: string
   location: string
   followers: number
   following: number
@@ -12,7 +12,7 @@ export class User {
     this.name = params.name
     this.username = params.login
     this.avatar = params.avatar_url
-    this.bio = params.bio
+    this.biography = params.bio
     this.followers = params.followers
     this.location = params.location
     this.following = params.following

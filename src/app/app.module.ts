@@ -34,7 +34,7 @@ import { NumberPipe } from './pipes'
     ConfigService,
     {
       provide: APP_INITIALIZER,
-      useFactory: (config: ConfigService) => () => config.loadConfig(),
+      useFactory: (config: ConfigService) => () => config.load(),
       deps: [ConfigService],
       multi: true,
     },

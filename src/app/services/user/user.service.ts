@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core'
-import { BaseService } from '../../services/base/base.service'
+import { BaseService } from '../base/base.service'
 import { User, UsersResponse } from 'src/app/models'
 import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root',
 })
-export class UsersService {
+export class UserService {
   constructor(private baseService: BaseService) {}
 
   getUsers(params: any): Observable<UsersResponse> {
