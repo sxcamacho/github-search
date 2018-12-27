@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.margin-bottom-40 {
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}

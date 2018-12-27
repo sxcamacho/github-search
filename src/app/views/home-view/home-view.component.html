@@ -1,9 +1,58 @@
-<div class="row">
-  <div class="col-md-8 offset-md-2"><h1>Github Users Search</h1></div>
+<div class="row margin-bottom-40">
+  <div class="col-md-8 offset-md-2 text-center">
+    <img class="logo" src="../../../assets/images/github.png" />
+    <search-box
+      [initialCriteria]="initialCriteria"
+      (onChangeCriteria)="onChangeCriteria($event)"
+    ></search-box>
+    <h5 *ngIf="criteria && !loading && realUserTotal > 0" class="total-users">
+      {{ realUserTotal | number }} users
+    </h5>
+  </div>
 </div>
-<div class="row">
-  <div class="col-md-8 offset-md-2"><search-box></search-box></div>
+<div class="row" *ngIf="!loading && userTotal">
+  <div class="col-md-8 offset-md-2 pull-right">
+    <div class="pagination-box">
+      <ngb-pagination
+        *ngIf="pageSize <= userTotal"
+        [collectionSize]="userTotal"
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [maxSize]="isMobile ? 3 : 5"
+        [boundaryLinks]="false"
+        (pageChange)="onChangePage($event)"
+        class="d-flex justify-content-center"
+      ></ngb-pagination>
+    </div>
+  </div>
+  <div class="col-md-8 offset-md-2 margin-bottom-1em">
+    <user-list *ngIf="userTotal" [users]="users"></user-list>
+  </div>
+  <div class="col-md-8 offset-md-2 pull-right pagination-box">
+    <ngb-pagination
+      *ngIf="pageSize <= userTotal"
+      [collectionSize]="userTotal"
+      [(page)]="page"
+      [pageSize]="pageSize"
+      [maxSize]="isMobile ? 3 : 5"
+      [boundaryLinks]="false"
+      (pageChange)="onChangePage($event)"
+      class="d-flex justify-content-center"
+    ></ngb-pagination>
+  </div>
 </div>
-<div class="row">
-  <div class="col-md-8 offset-md-2"><user-list></user-list></div>
+<div class="row" *ngIf="loading">
+  <div class="col-md-8 offset-md-2 text-center">
+    <div class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="criteria && !loading && !userTotal">
+  <div class="col-md-8 offset-md-2 text-center"><h5>No users found</h5></div>
+</div>
+<div class="row" *ngIf="!criteria && !loading && !userTotal">
+  <div class="col-md-8 offset-md-2 text-center">
+    <h5>Please enter a criteria for your search</h5>
+  </div>
 </div>

@@ -5,8 +5,16 @@
     placeholder="Search users"
     aria-label="Search user"
     aria-describedby="basic-addon2"
+    [(ngModel)]="criteria"
+    (keyup.enter)="onChange()"
   />
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button">Search</button>
+    <button
+      class="btn btn-outline-secondary"
+      type="button"
+      (click)="onChange()"
+    >
+      Search
+    </button>
   </div>
 </div>

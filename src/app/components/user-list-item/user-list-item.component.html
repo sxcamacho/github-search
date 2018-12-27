@@ -1,0 +1,20 @@
+<div class="user-box">
+  <img class="avatar rounded" [src]="user.avatar" />
+  <div class="user-info">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">
+        {{ internalUser?.username }} {{ fullname(internalUser) }}
+      </h5>
+      <label
+        *ngIf="internalUser?.followers"
+        class="badge badge-dark followers hidden-xs"
+      >
+        {{ internalUser?.followers }} followers
+      </label>
+    </div>
+    <p class="mb-1">{{ internalUser?.bio }}</p>
+    <small *ngIf="internalUser?.location">
+      <i class="fas fa-map-marker-alt"></i> {{ internalUser?.location }}
+    </small>
+  </div>
+</div>
