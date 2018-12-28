@@ -7,15 +7,15 @@ import { UserService } from 'src/app/services'
   styleUrls: ['./home-view.component.scss'],
 })
 export class HomeViewComponent implements OnInit {
-  private users: any
-  private page: number
-  private pageSize: number
-  private criteria: string
-  private initialCriteria: string
-  private userTotal: number
-  private realUserTotal: number
-  private loading: boolean
-  private isMobile: boolean
+  users: any
+  page: number
+  pageSize: number
+  criteria: string
+  initialCriteria: string
+  userTotal: number
+  realUserTotal: number
+  loading: boolean
+  isMobile: boolean
 
   constructor(private userService: UserService) {
     this.page = 1

@@ -10,7 +10,7 @@ export class UserListComponent {
   @Input() loading: boolean
   @Input() users: Array<User>
 
-  private selectedUser: User
+  selectedUser: User
 
   constructor() {}
 

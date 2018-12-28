@@ -9,7 +9,7 @@ export class SearchBoxComponent implements OnInit {
   @Input() initialCriteria: string
   @Output('onChangeCriteria') changeEvent: EventEmitter<string>
 
-  private criteria: string
+  criteria: string
 
   constructor() {
     this.changeEvent = new EventEmitter<string>()

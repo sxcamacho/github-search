@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services'
 export class UserListItemComponent implements OnInit {
   @Input() user: User
 
-  private internalUser: User
+  internalUser: User
 
   constructor(private userService: UserService) {}
 
